@@ -84,27 +84,27 @@
 
     <div id="videoNavigation">
         <div class="row">
-            <div class="col-5">    
+            <div class="col-4">    
                 <ul class="actions fit">
                     <li>
                         
-                            <a class="button icon solid fa-angle-left disabled">Anterior</a>
+                            <a class="button icon solid fa-angle-left disabled" title="">Anterior</a>
                                 
                     </li>
                 </ul>
             </div>
-            <div class="col-2">    
+            <div class="col-4">    
                 <ul class="actions fit">
                     <li>
-                        <a class="button" href="" title=""></a>
+                        <a class="button" href="" title="">Indice</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-5">    
+            <div class="col-4">    
                 <ul class="actions fit">
                     <li>
                         
-                            <a class="button disabled">Siguiente <span class="icon solid fa-angle-right"></span></a>
+                            <a class="button disabled" title="">Siguiente <span class="icon solid fa-angle-right"></span></a>
                                 
                     </li>
                 </ul>
@@ -369,6 +369,71 @@
   // });   
 </script>
 <!-- end of post decryption -->
+
+
+<script>
+  function toggleInscriptionMethods (){
+      var dateOfFirstClass = new Date('');
+      var dateOfLastClass =  new Date('');
+      var now = new Date();
+
+      var isCourseInProgress = true;
+      if (now > dateOfLastClass){
+          isCourseInProgress = false;
+      }
+
+      if (isCourseInProgress){
+          $('[show="whileInProgress"').show();
+          $('[enable="whileInProgress"]').removeClass("greyedOut").removeClass("blured");
+          $('[enable="whileInProgress"] *').removeClass("disabled");
+
+          $('[show="whenDone"').hide();                
+          $('[enable="whenDone"]').addClass("greyedOut").addClass("blured");
+          $('[enable="whenDone"] *').addClass("disabled");
+      }
+      else {
+          $('[show="whenDone"').show();
+          $('[enable="whenDone"]').removeClass("greyedOut").removeClass("blured");
+          $('[enable="whenDone"] *').removeClass("disabled");
+
+          $('[show="whileInProgress"').hide();                
+          $('[enable="whileInProgress"]').addClass("greyedOut").addClass("blured");
+          $('[enable="whileInProgress"] *').addClass("disabled");
+      }
+  }
+
+  function onDecryptSuccess(){
+      $('#liveCourseInscriptions').hide();
+  }
+
+  function getUrlVars()
+  {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++)
+      {
+          hash = hashes[i].split('=');
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+      }
+      return vars;
+  }
+
+  $(document).ready(function(){
+      toggleInscriptionMethods();
+      $('#btnInscriptionsDecrypt').click(function(){ 
+          var key = $("#txtInscriptionsPassword").val();
+          decrypt(key, onDecryptSuccess);
+      })
+
+      var queryString = getUrlVars();
+      if (queryString.hasOwnProperty("k")){
+          var key = queryString["k"];
+          decrypt(key, onDecryptSuccess);
+      }
+  });
+</script>    
+
         </div>
     </section>
 
