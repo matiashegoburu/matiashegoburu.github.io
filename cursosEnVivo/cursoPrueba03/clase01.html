@@ -12,7 +12,7 @@
     <title> Matias Hegoburu - clase 01 </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <base href="https://matias.hegoburu.com.ar/">
+    <base href="http://localhost:4000">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/custom.css">
     <noscript>
@@ -372,36 +372,6 @@
 
 
 <script>
-  function toggleInscriptionMethods (){
-      var dateOfFirstClass = new Date('');
-      var dateOfLastClass =  new Date('');
-      var now = new Date();
-
-      var isCourseInProgress = true;
-      if (now > dateOfLastClass){
-          isCourseInProgress = false;
-      }
-
-      if (isCourseInProgress){
-          $('[show="whileInProgress"').show();
-          $('[enable="whileInProgress"]').removeClass("greyedOut").removeClass("blured");
-          $('[enable="whileInProgress"] *').removeClass("disabled");
-
-          $('[show="whenDone"').hide();                
-          $('[enable="whenDone"]').addClass("greyedOut").addClass("blured");
-          $('[enable="whenDone"] *').addClass("disabled");
-      }
-      else {
-          $('[show="whenDone"').show();
-          $('[enable="whenDone"]').removeClass("greyedOut").removeClass("blured");
-          $('[enable="whenDone"] *').removeClass("disabled");
-
-          $('[show="whileInProgress"').hide();                
-          $('[enable="whileInProgress"]').addClass("greyedOut").addClass("blured");
-          $('[enable="whileInProgress"] *').addClass("disabled");
-      }
-  }
-
   function onDecryptSuccess(){
       $('#liveCourseInscriptions').hide();
   }
@@ -420,7 +390,6 @@
   }
 
   $(document).ready(function(){
-      toggleInscriptionMethods();
       $('#btnInscriptionsDecrypt').click(function(){ 
           var key = $("#txtInscriptionsPassword").val();
           decrypt(key, onDecryptSuccess);
