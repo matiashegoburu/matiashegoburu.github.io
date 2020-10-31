@@ -118,6 +118,15 @@ ul.actions.noMargin {
   margin-bottom: 0px;
 }
 
+section.videoActions ul.actions.fit {
+  width: inherit !important;
+  flex-wrap: wrap;
+}
+
+  section.videoActions ul.actions.fit li {
+    width: auto !important;
+  }
+
 #header > #navigation > ul > li.icon {
   display: none;
 }    
@@ -136,10 +145,6 @@ ul.actions.noMargin {
     float: right;
     display: block;
   }
-}
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 800px) {
   #header > #navigation.responsive {position: relative;}
   #header > #navigation.responsive > ul > li.icon {
     position: absolute;
