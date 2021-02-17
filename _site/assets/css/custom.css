@@ -1,0 +1,164 @@
+h1.major {
+  margin: 0 0 0.5em 0;
+}
+
+/* Course card styles */
+.course.card p.length
+{
+  margin: 0em;
+  font-size: 0.8em;
+  color: white;
+  font-weight: bold;
+}
+
+  .course.card p.length span.level,
+  .course.card p.length span.startDate
+  {
+    padding: 0px 4px;
+    border-radius: 5px;
+    float: right;
+  }
+
+    .course.card p.length span.level.Inicial
+    {
+      background-color: green;
+    }
+
+    .course.card p.length span.level.Intermedio
+    {
+      background-color: orange;
+    }
+
+    .course.card p.length span.level.Avanzado
+    {
+      background-color: red;
+    }
+
+    .course.card .main.container
+  {
+      position: relative;
+  }
+
+    .course.card .main.container span.image.fit
+    {
+        position: relative;
+        margin-bottom: 0.5em;
+    }
+
+
+    .course.card .main.container .title.container
+    {
+        /*position: absolute;*/
+        bottom: 1em;
+        left: 1em;
+        margin-right: 1em;
+    }
+
+      .course.card .main.container .title.container p.title
+      {
+        font-size: 1.4em;
+        font-weight: bolder;
+        margin: 0em;
+        color: white;
+      }
+
+      .course.card .main.container .title.container p.subtitle
+      {
+        margin: 0em;
+        font-size: 0.9em;
+        color: white;
+        font-weight: bold;
+      }
+
+.row.flex, .actions.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.flex .col-2  {
+  width: 243.821px;;
+}
+
+.row.flex .col-3  {
+  width: 296.828px;
+}
+
+.row.flex .col-4  {
+  width: 487.665px;
+}
+
+.row.flex .col-5  {
+  width: 609.587px;;
+}
+
+/* .row.aln-middle ul.actions { display: table-row; } */
+/* .row.aln-middle ul.actions li { display: inline-block; } */
+
+.greyedOut { 
+  opacity: 0.50;
+}
+
+.blured { 
+  filter: blur(3px);
+}
+
+#courseIndexVideos td {
+  vertical-align: top;
+}
+
+  #courseIndexVideos td.thumbnail {
+    width: 40px
+  }
+
+    #courseIndexVideos td.thumbnail .image.fit{
+      margin: 0;
+    }
+
+ul.actions.noMargin {
+  margin-bottom: 0px;
+}
+
+section.videoActions ul.actions.fit {
+  width: inherit !important;
+  flex-wrap: wrap;
+}
+
+  section.videoActions ul.actions.fit li {
+    width: auto !important;
+  }
+
+#header > #navigation > ul > li.icon {
+  display: none;
+}    
+
+/* Encryption */
+.secure-content {display: none;}
+
+#rowSubscriptionMethods .subscriptionMethod { position: relative; }
+
+#rowSubscriptionMethods .subscriptionMethod ul.actions li { position: absolute; bottom: 0; }
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 800px) {
+  #header > #navigation > ul > li {display: none;}
+  #header > #navigation > ul > li.icon {
+    float: right;
+    display: block;
+  }
+  #header > #navigation.responsive {position: relative;}
+  #header > #navigation.responsive > ul > li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  #header > #navigation.responsive li {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+#footer > .inner .menu {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.55);
+}
