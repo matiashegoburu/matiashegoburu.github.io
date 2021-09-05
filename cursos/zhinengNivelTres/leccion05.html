@@ -8,7 +8,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXEEPE3LVT"></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-TXEEPE3LVT"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -16,6 +16,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
 
     gtag('config', 'G-TXEEPE3LVT');
     </script>    
+
+    <script async src="https://www.youtube.com/iframe_api"></script>
 
     
 
@@ -104,6 +106,12 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
         <a href="/cursos">
           <i data-cs-icon="online-class" class="icon" data-cs-size="18"></i>
           <span class="label">Cursos gratuitos</span>
+        </a>
+      </li>
+      <li>
+        <a href="/practicas">
+          <i data-cs-icon="music" class="icon" data-cs-size="18"></i>
+          <span class="label">Practicas guiadas</span>
         </a>
       </li>
       <!-- <li>
@@ -256,11 +264,30 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
         <div class="col-xl-9 col-xxl-9 h-100">
             <div class="card mb-5 h-100">
                 <div class="video-container rounded-top">
-                  <iframe
-    src="https://www.youtube.com/embed/kySyN7G4Rjo?cc_load_policy=1"
-    allowfullscreen
-    allow="autoplay"
-></iframe>
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="kySyN7G4Rjo" class="card">
+    <img class="img-fluid card-img" src="images/pic01.jpg">
+    <div class="card-img-overlay d-flex justify-content-center align-items-center">
+        <div class="rounded bg-primary bg-gradient border border-light border-2 sw-16 sh-9 d-flex justify-content-center align-items-center">
+            <a href="#" class="stretched-link text-light" onclick="new YT.Player('kySyN7G4Rjo', { videoId: 'kySyN7G4Rjo', playerVars: { autoplay: 1, cc_load_policy: 1 } })">
+                <i data-cs-icon="play"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
                 </div>
                 <div class="card-body">
                   <div id="videoNavigation">
