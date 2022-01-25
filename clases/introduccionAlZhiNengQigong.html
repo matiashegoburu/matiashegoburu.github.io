@@ -615,13 +615,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
 
         <h2 class="small-title">Cronograma</h2>
         <p>El siguiente es el cronograma de las clases. Asegurate de anotar bien la zona horaria que corresponde a tu país.</p>
-        <script>
-    function dateTimeToTimezone(sourceDateTime, destinationTimezone) {
-    var date = new Date(sourceDateTime);
-    
-    return date.toLocaleString("en-US", {timeZone: destinationTimezone});
-    }    
-</script>
+        
 
 <div class="card mb-5">
     <div class="card-body">
@@ -4175,7 +4169,14 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
         </div>
         
     </div>
-</div>        
+</div>
+
+<script>
+    function dateTimeToTimezone(sourceDateTime, destinationTimezone) {
+        var dt = luxon.DateTime.fromFormat(sourceDateTime, "yyyy.mm.dd tt ", { locale: "en-US" })
+        return dt.setZone(destinationTimezone);
+    }    
+</script>        
 
     </div>
     <!-- left side end -->
@@ -4511,7 +4512,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
     <script>
         feather.replace()
       </script>
-
+    <script src="/assets/js/vendor/luxon.min.js"></script>
     <!-- Vendor Scripts End -->
 
     <!-- Template Base Scripts Start -->
