@@ -64,6 +64,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
 
     <link rel="stylesheet" href="/assets/css/main.css" />
     <script src="/assets/js/base/loader.js"></script>
+    <script src="/assets/js/vendor/luxon.min.js"></script>
 </head>
 
 <body>
@@ -204,15 +205,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
 <main>
     <div class="container">
         <!-- Content Start -->
-        <script>
-    function dateTimeToTimezone(sourceDateTime, destinationTimezone) {
-    var date = new Date(sourceDateTime);
-    
-    return date.toLocaleString("en-US", {timeZone: destinationTimezone});
-    }    
-</script>
-
-<!-- Title and Top Buttons Start -->
+        <!-- Title and Top Buttons Start -->
 <div class="page-title-container">
     <div class="row">
         <!-- Title Start -->
@@ -441,7 +434,13 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
 
         <h2 class="small-title">Cronograma</h2>
         <p>El siguiente es el cronograma de las clases. Asegurate de anotar bien la zona horaria que corresponde a tu país.</p>
-        
+        <script>
+    function dateTimeToTimezone(sourceDateTime, destinationTimezone) {
+        var dt = luxon.DateTime.fromSQL(sourceDateTime, { locale: "en-US" })
+        return dt.setZone(destinationTimezone).toFormat("yyyy.LL.dd tt");
+    }    
+</script>
+
 
 <div class="card mb-5">
     <div class="card-body">
@@ -467,7 +466,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 1. 2023.03.05 03:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 1. 2023-03-05 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -500,7 +500,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -522,7 +522,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -544,7 +544,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -566,7 +566,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -588,7 +588,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -610,7 +610,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -632,7 +632,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -654,7 +654,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -676,7 +676,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -698,7 +698,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -720,7 +720,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.05 03:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-05 15:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -763,7 +763,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 2. 2023.03.12 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 2. 2023-03-12 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -796,7 +797,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -818,7 +819,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -840,7 +841,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -862,7 +863,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -884,7 +885,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -906,7 +907,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -928,7 +929,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -950,7 +951,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -972,7 +973,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -994,7 +995,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1016,7 +1017,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.12 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-12 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1059,7 +1060,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 3. 2023.03.19 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 3. 2023-03-19 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -1092,7 +1094,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1114,7 +1116,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1136,7 +1138,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1158,7 +1160,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1180,7 +1182,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1202,7 +1204,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1224,7 +1226,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1246,7 +1248,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1268,7 +1270,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1290,7 +1292,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1312,7 +1314,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.19 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-19 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1355,7 +1357,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 4. 2023.03.26 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 4. 2023-03-26 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -1388,7 +1391,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1410,7 +1413,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1432,7 +1435,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1454,7 +1457,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1476,7 +1479,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1498,7 +1501,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1520,7 +1523,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1542,7 +1545,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1564,7 +1567,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1586,7 +1589,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1608,7 +1611,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.03.26 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-03-26 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1651,7 +1654,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 5. 2023.04.02 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 5. 2023-04-02 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -1684,7 +1688,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1706,7 +1710,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1728,7 +1732,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1750,7 +1754,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1772,7 +1776,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1794,7 +1798,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1816,7 +1820,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1838,7 +1842,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1860,7 +1864,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1882,7 +1886,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1904,7 +1908,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.02 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-02 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1947,7 +1951,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 6. 2023.04.09 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 6. 2023-04-09 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -1980,7 +1985,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2002,7 +2007,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2024,7 +2029,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2046,7 +2051,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2068,7 +2073,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2090,7 +2095,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2112,7 +2117,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2134,7 +2139,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2156,7 +2161,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2178,7 +2183,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2200,7 +2205,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.09 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-09 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2243,7 +2248,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 7. 2023.04.16 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 7. 2023-04-16 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -2276,7 +2282,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2298,7 +2304,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2320,7 +2326,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2342,7 +2348,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2364,7 +2370,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2386,7 +2392,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2408,7 +2414,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2430,7 +2436,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2452,7 +2458,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2474,7 +2480,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2496,7 +2502,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.16 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-16 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2539,7 +2545,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 8. 2023.04.23 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 8. 2023-04-23 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -2572,7 +2579,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2594,7 +2601,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2616,7 +2623,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2638,7 +2645,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2660,7 +2667,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2682,7 +2689,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2704,7 +2711,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2726,7 +2733,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2748,7 +2755,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2770,7 +2777,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2792,7 +2799,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.23 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-23 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2835,7 +2842,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 9. 2023.04.30 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 9. 2023-04-30 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -2868,7 +2876,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2890,7 +2898,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2912,7 +2920,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2934,7 +2942,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2956,7 +2964,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -2978,7 +2986,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3000,7 +3008,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3022,7 +3030,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3044,7 +3052,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3066,7 +3074,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3088,7 +3096,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.04.30 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-04-30 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3131,7 +3139,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 10. 2023.05.07 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 10. 2023-05-07 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -3164,7 +3173,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3186,7 +3195,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3208,7 +3217,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3230,7 +3239,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3252,7 +3261,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3274,7 +3283,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3296,7 +3305,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3318,7 +3327,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3340,7 +3349,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3362,7 +3371,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3384,7 +3393,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.07 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-07 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3427,7 +3436,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 11. 2023.05.14 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 11. 2023-05-14 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -3460,7 +3470,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3482,7 +3492,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3504,7 +3514,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3526,7 +3536,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3548,7 +3558,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3570,7 +3580,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3592,7 +3602,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3614,7 +3624,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3636,7 +3646,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3658,7 +3668,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3680,7 +3690,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.14 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-14 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3721,7 +3731,8 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                         <div class="d-flex flex-column">
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="heading">Clase 12. 2023.05.21 02:00 PM (hora Nueva York)</p>
+                                    
+                                    <p class="heading">Clase 12. 2023-05-21 10:00 AM EST (hora Nueva York)</p>
                                 </div>
                                 <div class="col-5">
                                     <div class="accordion accordion-flush" id="accordionExample">
@@ -3754,7 +3765,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Argentina/Buenos_Aires"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Argentina/Buenos_Aires"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3776,7 +3787,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Mexico_City"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Mexico_City"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3798,7 +3809,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "Europe/Madrid"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "Europe/Madrid"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3820,7 +3831,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Guayaquil"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Guayaquil"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3842,7 +3853,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Santiago"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Santiago"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3864,7 +3875,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Bogota"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Bogota"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3886,7 +3897,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Lima"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Lima"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3908,7 +3919,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Montevideo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Montevideo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3930,7 +3941,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Sao_Paulo"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Sao_Paulo"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3952,7 +3963,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Asuncion"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Asuncion"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3974,7 +3985,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div class="sh-4 d-flex align-items-center text-alternate">
-                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023.05.21 02:00 PM", "America/Caracas"));</script>
+                                                                        <script type="text/javascript">document.write(dateTimeToTimezone("2023-05-21 14:00Z", "America/Caracas"));</script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3997,12 +4008,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
     </div>
 </div>
 
-<script>
-    function dateTimeToTimezone(sourceDateTime, destinationTimezone) {
-        var dt = luxon.DateTime.fromFormat(sourceDateTime, "yyyy.mm.dd tt ", { locale: "en-US" })
-        return dt.setZone(destinationTimezone);
-    }    
-</script>        
+        
 
     </div>
     <!-- left side end -->
@@ -4344,8 +4350,7 @@ data-override='{"attributes": {"placement": "vertical","layout": "boxed", "behav
     <script src="/assets/js/vendor/feather.min.js"></script>
     <script>
         feather.replace()
-      </script>
-    <script src="/assets/js/vendor/luxon.min.js"></script>
+    </script>
     <!-- Vendor Scripts End -->
 
     <!-- Template Base Scripts Start -->
