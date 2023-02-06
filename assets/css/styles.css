@@ -15157,7 +15157,7 @@ html[data-footer=true] #root > footer {
   bottom: 0;
   width: 100%;
   height: var(--footer-size);
-  display: flex;
+  /*display: flex;*/
   padding-left: calc(var(--nav-size) + var(--main-spacing-horizontal));
   padding-right: var(--main-spacing-horizontal);
 }
