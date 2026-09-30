@@ -97,6 +97,13 @@
 .msh *, .msh *::before, .msh *::after{box-sizing:border-box}
 .msh html{scroll-behavior:smooth}
 .msh{background:var(--paper);color:var(--brand-indigo)}
+/* Base heading color: the template's h1-h6{color:var(--body)} (light-purple grey)
+   leaks into .msh headings that have no explicit color (hero h1, section h2, etc.).
+   Pin headings to the design ink. !important beats the template's element rule.
+   Dark-section headings (.msh .dark h*) and footer headings keep their own
+   higher-specificity / !important pins (white / indigo) — this only fixes the
+   previously un-pinned light-section base headings. */
+.msh h1,.msh h2,.msh h3,.msh h4{color:var(--fg)!important}
 /* The legacy template is laid out for a LEFT vertical sidebar: html carries
    data-placement="vertical" and its `main` rule reserves the sidebar width on the
    left (padding-left = --main-spacing-horizontal + --nav-size/slim). That rule is
