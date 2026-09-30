@@ -97,6 +97,16 @@
 .msh *, .msh *::before, .msh *::after{box-sizing:border-box}
 .msh html{scroll-behavior:smooth}
 .msh{background:var(--paper);color:var(--brand-indigo)}
+/* The legacy template is laid out for a LEFT vertical sidebar: html carries
+   data-placement="vertical" and its `main` rule reserves the sidebar width on the
+   left (padding-left = --main-spacing-horizontal + --nav-size/slim). That rule is
+   higher-specificity (0,2,2) than `.msh main` and would otherwise shift every
+   full-bleed band (hero, donate, etc.) right of center, reading as a wider left
+   margin on both desktop and mobile. The .msh design uses a top nav (mshNav.html)
+   with no left sidebar, so that reservation is dead space. Reset main to symmetric
+   template spacing; !important wins the cascade against the vertical-placement rule
+   (scoped to .msh pages, so legacy layouts are untouched). */
+.msh main{padding:var(--main-spacing-vertical) var(--main-spacing-horizontal)!important}
 .msh .section--alt{background:#f3f1ec}
 .msh .card-body{min-width:0}
 .msh .card-body p{margin:0;color:var(--muted)}

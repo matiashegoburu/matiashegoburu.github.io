@@ -24,12 +24,12 @@ DRY_RUN=0
 SKIP_BUILD=0
 MSG="Deploy: retheme build $(date -u +%Y-%m-%d)"
 
-for a in "$@"; do
-  case "$a" in
-    --dry-run)    DRY_RUN=1 ;;
-    --skip-build) SKIP_BUILD=1 ;;
-    --message)    shift; MSG="${*:1}" ;;
-    *) echo "unknown arg: $a" >&2; exit 2 ;;
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --dry-run)    DRY_RUN=1; shift ;;
+    --skip-build) SKIP_BUILD=1; shift ;;
+    --message)    MSG="$2"; shift 2 ;;
+    *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac
 done
 
