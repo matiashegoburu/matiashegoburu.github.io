@@ -523,6 +523,14 @@
 .msh .material-card{--card-pad:var(--space-3);padding:var(--space-3)}
 .msh .material-type{font:600 var(--text-xs)/1 var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 4px}
 .msh .material-title{margin:0;color:var(--fg-2);font-weight:600}
+.msh .subcategory{margin-top:var(--space-8)}
+.msh .subcategory-head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-4);margin-bottom:var(--space-5)}
+.msh .subcategory-head h3{margin:0;font-size:var(--text-2xl);color:var(--fg)}
+.msh .subcount{font:600 var(--text-xs)/1 var(--font-mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.msh a.material-card{text-decoration:none;color:inherit}
+.msh .material-card .card-foot span:last-child{color:var(--brand-wine);font-family:var(--font-mono);transition:transform var(--motion-fast) var(--ease-standard)}
+.msh .material-card:hover .material-title{color:var(--brand-wine)}
+.msh .material-card:hover .card-foot span:last-child{transform:translateX(3px)}
 .msh .badge-free{position:absolute;top:10px;left:10px;z-index:2;background:var(--brand-gold);color:var(--brand-indigo);font:700 var(--text-xs)/1 var(--font-mono);padding:5px 10px;border-radius:var(--radius-pill)}
 .msh .free-course-card{--card-pad:var(--space-3);padding:var(--space-3)}
 .msh .free-course-title{font-family:var(--font-body);font-weight:600;font-size:var(--text-base);color:var(--brand-indigo);margin:0}
