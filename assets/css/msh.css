@@ -527,7 +527,12 @@
 .msh .subcategory-head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-4);margin-bottom:var(--space-5)}
 .msh .subcategory-head h3{margin:0;font-size:var(--text-2xl);color:var(--fg)}
 .msh .subcount{font:600 var(--text-xs)/1 var(--font-mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-.msh a.material-card{text-decoration:none;color:inherit}
+.msh a.card-media-link{position:relative;display:block;width:calc(100% + 2 * var(--card-pad, var(--space-6)));max-width:none;margin:calc(-1 * var(--card-pad, var(--space-6))) calc(-1 * var(--card-pad, var(--space-6))) 0;border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/9;text-decoration:none;cursor:pointer}
+.msh a.card-media-link img{width:100%;height:100%;object-fit:cover;display:block}
+.msh a.card-media-link:hover img{opacity:.9}
+.msh .card:has(> a.card-media-link){overflow:hidden}
+.msh .card-title-link{text-decoration:none;color:var(--fg)}
+.msh .card-title-link:hover{color:var(--brand-wine)}
 .msh .material-card .card-foot span:last-child{color:var(--brand-wine);font-family:var(--font-mono);transition:transform var(--motion-fast) var(--ease-standard)}
 .msh .material-card:hover .material-title{color:var(--brand-wine)}
 .msh .material-card:hover .card-foot span:last-child{transform:translateX(3px)}
