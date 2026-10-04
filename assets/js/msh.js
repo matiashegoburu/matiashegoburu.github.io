@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-filter]').forEach(item => item.classList.remove('active'));
     button.classList.add('active');
     const value = button.dataset.filter;
-    document.querySelectorAll('[data-kind]').forEach(card => card.classList.toggle('hidden', value !== 'todos' && card.dataset.kind !== value));
+    const cards = button.closest('section') ? button.closest('section').querySelectorAll('[data-cat]') : document.querySelectorAll('[data-cat]');
+    cards.forEach(card => card.classList.toggle('hidden', value !== 'todos' && card.dataset.cat !== value));
   }));
   document.querySelectorAll('form[data-demo]').forEach(form => form.addEventListener('submit', event => {
     event.preventDefault();
