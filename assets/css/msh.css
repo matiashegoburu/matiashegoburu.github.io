@@ -497,6 +497,14 @@
 .msh .page-hero-head .subtitle{max-width:56ch}
 .msh .page-hero .hero-media{display:block;width:100%;max-height:420px;object-fit:cover;aspect-ratio:auto;margin:0}
 .msh .subtitle{font-family:Georgia,"Times New Roman",serif;font-size:var(--text-xl);color:var(--fg-2);margin:0 0 var(--space-5)}
+/* Breadcrumb — small mono trail at the top of the hero, above the eyebrow */
+.msh .breadcrumb{margin:0 0 var(--space-4)}
+.msh .breadcrumb ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center}
+.msh .breadcrumb li{font:600 var(--text-xs)/1.4 var(--font-mono);color:var(--muted)}
+.msh .breadcrumb a{color:var(--muted);text-decoration:none;transition:color var(--motion-fast) var(--ease-standard)}
+.msh .breadcrumb a:hover{color:var(--brand-indigo)}
+.msh .breadcrumb li + li::before{content:"/";margin:0 var(--space-2);color:var(--border)}
+.msh .breadcrumb .breadcrumb-current{color:var(--fg-2);font-weight:700}
 .msh .hero-actions{display:flex;align-items:center;gap:var(--space-5);flex-wrap:wrap}
 .msh .hero-actions .btn{flex:0 0 auto}
 .msh .hero-media{flex:0 1 360px;width:360px;max-width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border);box-shadow:var(--elev-raised)}
