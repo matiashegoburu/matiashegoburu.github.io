@@ -162,8 +162,10 @@
 .msh .section{padding:var(--section-y-desktop) 0;border-top:1px solid var(--border)}
 .msh .section-head{display:flex;justify-content:space-between;gap:var(--space-8);align-items:end;margin-bottom:var(--space-8)}
 .msh .section-head p{margin:0;color:var(--muted)}
-.msh .course-intro{max-width:65ch;margin-bottom:var(--space-8);color:var(--muted)}
-.msh .course-intro p+p{margin-top:var(--space-3)}
+.msh .card.course-done{flex-direction:row;align-items:flex-start;gap:var(--space-4);margin-bottom:var(--space-8)}
+.msh .course-done .ico{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--brand-gold);color:var(--brand-indigo);font-size:20px}
+.msh .course-done .done-desc{margin:0 0 var(--space-3);color:var(--fg-2);font-size:var(--text-sm);max-width:75ch}
+.msh .course-done .done-note{margin:0;color:var(--muted);font-size:var(--text-sm)}
 .msh .grid{display:grid;gap:var(--space-5)}
 .msh .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .msh .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
