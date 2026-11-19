@@ -558,6 +558,7 @@
 .msh .toc-static-lessons a:hover{color:var(--brand-wine)}
 .msh .summary-card{padding:var(--space-5)}
 .msh .summary-card .fact{padding:var(--space-2) 0}
+.msh .summary-note{margin:var(--space-4) 0 0;padding:var(--space-3) var(--space-4);border:1px solid var(--border);border-left:3px solid var(--brand-gold);border-radius:var(--radius-sm);background:color-mix(in oklab, var(--brand-gold) 8%, var(--surface));color:var(--fg-2);font-size:var(--text-sm);line-height:1.5}
 .msh .section-title{font-family:Georgia,"Times New Roman",serif;font-size:var(--text-2xl);letter-spacing:-.02em;color:var(--brand-indigo);margin-bottom:var(--space-4)}
 .msh .mt-5{margin-top:var(--space-8)}
 @media(max-width:920px){
